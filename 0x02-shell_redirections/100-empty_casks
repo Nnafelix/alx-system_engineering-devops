@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty -printf "%P\n"
+find . -type f -empty -execdir sh -c 'printf "%s\n" "${PWD}/${1##*/}"' sh {} \; -o -type d -empty -execdir sh -c 'printf "%s\n" "${PWD}/${1##*/}"' sh {} \;
